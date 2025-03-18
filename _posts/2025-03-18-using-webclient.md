@@ -1,15 +1,19 @@
 ---
-title: Spring Boot에서 WebClient 사용해보기
+title: WebClient로 HTTPS 통신하기
 date: 2025-03-18 17:13:52 +/-TTTT
 categories: [Spring Boot]
 tags: [WebClient]
 ---
 
 
-Spring Boot 기반의 A 서비스가 B 서비스와 통신해야 하는 상황에서, B 서비스가 자체 서명된 인증서를 사용하고 있어 SSL 인증 오류가 발생했습니다. 이를 해결하기 위해 WebClient를 사용하고, SSL 검증을 우회하는 방법을 설명합니다
+Spring Boot 기반의 A 서비스와 B 서비스가 통신해야하는 상황이라 `WebClient`를 사용했습니다.
+B 서비스가 자체 서명된 인증서를 사용하고 있어, SSL 인증 오류가 발생했습니다.
+이를 해결하기 위해 `WebClient`  사용 시, SSL 검증을 우회하는 방법에 대해 설명합니다.
+
+<br/>
 
 ## RestTemplate VS WebClient
-먼저, Spring Boot에서 서비스 간 통신을 위해서는 `RestTemplate`이나 `WebClient`를 사용할 수 있습니다. B 서비스는 성능과 동시성이 중요해 `WebClient`를 선택했습니다.
+먼저, Spring Boot에서 서비스 간 통신을 위해서는 `RestTemplate`이나 `WebClient`를 사용할 수 있습니다.
 
 ### RestTemplate
 
@@ -109,10 +113,10 @@ public class TestService {
     private final WebClient webClient;
     private final WebClient insecureWebClient;
 
-    // SSL 우회
-    public Mono<String> test1() {
-    return insecureWebClient.post()
-            .uri("https://도메인주소/test")
+    // SSL 검증
+    public Mono<String> withSecureWebClient() {
+    return webClient.post()
+            .uri("/test")
             .contentType(MediaType.APPLICATION_JSON)
             .bodyValue(requestBody)
             .retrieve()
@@ -123,17 +127,18 @@ public class TestService {
             });
     }
 
-    public Mono<String> test2() {
-        return webClient.post()
-                .uri("/test")
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(requestBody)
-                .retrieve()
-                .bodyToMono(String.class)
-                .onErrorResume(e -> {
-                    e.printStackTrace();
-                    return Mono.just("Error occurred: " + e.getMessage());
-                });
+    // SSL 검증 우회
+    public Mono<String> withInsecureWebClient() {
+    return insecureWebClient.post()
+            .uri("https://도메인주소/test")
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(requestBody)
+            .retrieve()
+            .bodyToMono(String.class)
+            .onErrorResume(e -> {
+                e.printStackTrace();
+                return Mono.just("Error occurred: " + e.getMessage());
+            });
     }
 }
 ```
