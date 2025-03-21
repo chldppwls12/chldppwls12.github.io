@@ -45,18 +45,35 @@ Flyway는 마이그레이션 스크립트의 버전을 파일명을 통해 관�
 
 <img src="/assets/img/flyway-1/naming.png" alt="Naming">
 
+### V(Versioned) Migration
 `V{버전 번호}__{설명}.sql`
 
-- V:  버전(Version)
-- 버전 번호: 순차적으로 증가하는 숫자 (예: 1, 2, 3 또는 1.0, 1.1, 2.0)
-- __: 이중 언더스코어로 버전과 설명을 구분
-- 설명: 해당 마이그레이션이 수행하는 작업에 대한 간략한 설명
-
+- 순차적인 스키마 변경 (테이블 생성/변경, 컬럼 추가 등)
+- 버전 번호 순서대로 실행
 - 예시
   - `V1__create_user_table.sql`
   - `V2__add_email_column.sql`
   - `V2.1__add_indexes.sql`
 
+### R (Repeatable) 마이그레이션
+`R__{설명}.sql`
+
+- 자주 변경되는 뷰, 함수, 프로시저, 트리거 등 관리
+- 모든 V 마이그레이션 이후에 실행됨
+- 파일 내용의 체크섬이 변경되면 재실행
+- 항상 최신 버전만 유지됨
+- 예시
+- `R__Create_views.sql`
+- `R__Create_stored_procedures.sql`
+  
+### U (Undo) 마이그레이션 (Teams 버전 전용)
+`U{버전 번호}__{설명}.sql`
+
+- 특정 V 마이그레이션을 취소
+- flyway undo 명령으로 실행 (Teams 버전에서만 지원)
+- 무료 버전에서 롤백이 필요하면 새 V 마이그레이션으로 변경 취소를 구현해야 함
+- 예시
+  - `U2__undo_add_email_column.sql` (V2 마이그레이션 취소)
 
 ## 실제 사용해보기
 
