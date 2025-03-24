@@ -1,5 +1,5 @@
 ---
-title: Flyway를 활용한 DB Migration하기 (1) - 정의 및 간단한 사용 방법
+title: Flyway를 활용한 DB Migration하기(1) - 기본 및 간단한 사용 방법
 date: 2025-03-21 13:53:52 +/-TTTT
 categories: [DB Migration]
 tags: [Flyway]
