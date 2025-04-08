@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 배경 -->
+  <rect width="800" height="500" fill="#f8f9fa" />
+  
+  <!-- 제목 -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">DMZ(Demilitarized Zone)</text>
+  
+  <!-- 외부 영역 (인터넷) -->
+  <ellipse cx="150" cy="250" rx="100" ry="100" fill="#f0f0f0" stroke="#666666" stroke-width="2" />
+  <text x="150" y="240" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#333">인터넷</text>
+  <text x="150" y="265" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666666">(외부 네트워크)</text>
+  
+  <!-- 외부 방화벽 -->
+  <rect x="280" y="200" width="20" height="100" fill="#ff6666" stroke="#cc0000" stroke-width="2" />
+  <text x="290" y="190" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#cc0000">외부</text>
+  <text x="290" y="320" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#cc0000">방화벽</text>
+  
+  <!-- DMZ 영역 -->
+  <rect x="330" y="150" width="200" height="200" rx="10" ry="10" fill="#ffe6cc" stroke="#ff9900" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="430" y="140" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#ff9900">DMZ</text>
+  
+  <!-- DMZ 서버들 -->
+  <rect x="350" y="180" width="70" height="50" rx="5" ry="5" fill="#ffffff" stroke="#ff9900" stroke-width="1" />
+  <text x="385" y="210" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">웹 서버</text>
+  
+  <rect x="350" y="250" width="70" height="50" rx="5" ry="5" fill="#ffffff" stroke="#ff9900" stroke-width="1" />
+  <text x="385" y="280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">메일 서버</text>
+  
+  <rect x="440" y="180" width="70" height="50" rx="5" ry="5" fill="#ffffff" stroke="#ff9900" stroke-width="1" />
+  <text x="475" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">리버스</text>
+  <text x="475" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">프록시</text>
+  
+  <rect x="440" y="250" width="70" height="50" rx="5" ry="5" fill="#ffffff" stroke="#ff9900" stroke-width="1" />
+  <text x="475" y="280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">DNS 서버</text>
+  
+  <!-- 내부 방화벽 -->
+  <rect x="560" y="200" width="20" height="100" fill="#ff6666" stroke="#cc0000" stroke-width="2" />
+  <text x="570" y="190" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#cc0000">내부</text>
+  <text x="570" y="320" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#cc0000">방화벽</text>
+  
+  <!-- 내부 네트워크 영역 -->
+  <rect x="610" y="150" width="150" height="200" rx="10" ry="10" fill="#e6ffec" stroke="#00994c" stroke-width="2" />
+  <text x="685" y="140" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#00994c">내부 네트워크</text>
+  
+  <!-- 내부 서버들 -->
+  <rect x="630" y="180" width="110" height="40" rx="5" ry="5" fill="#ffffff" stroke="#00994c" stroke-width="1" />
+  <text x="685" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">애플리케이션 서버</text>
+  
+  <rect x="630" y="230" width="110" height="40" rx="5" ry="5" fill="#ffffff" stroke="#00994c" stroke-width="1" />
+  <text x="685" y="255" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">데이터베이스 서버</text>
+  
+  <rect x="630" y="280" width="110" height="40" rx="5" ry="5" fill="#ffffff" stroke="#00994c" stroke-width="1" />
+  <text x="685" y="305" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">내부 파일 서버</text>
+  
+  <!-- 화살표들 -->
+  <!-- 인터넷 -> 외부 방화벽 -->
+  <path d="M230 230 L280 230" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="255" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">요청</text>
+  
+  <!-- 외부 방화벽 -> DMZ -->
+  <path d="M300 230 L340 230" stroke="#cc0000" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="320" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">필터링된 트래픽</text>
+  
+  <!-- DMZ -> 내부 방화벽 -->
+  <path d="M520 230 L560 230" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="540" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">제한된 요청</text>
+  
+  <!-- 내부 방화벽 -> 내부 네트워크 -->
+  <path d="M580 230 L630 230" stroke="#cc0000" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="605" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">승인된 접근</text>
+  
+  <!-- DMZ -> 외부 방화벽 -> 인터넷 (응답) -->
+  <path d="M340 270 L300 270" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <path d="M280 270 L230 270" stroke="#cc0000" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="255" y="290" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">응답</text>
+  
+  <!-- 내부 네트워크 -> 내부 방화벽 -> DMZ (응답) -->
+  <path d="M630 270 L580 270" stroke="#00994c" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <path d="M560 270 L520 270" stroke="#cc0000" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="605" y="290" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">응답 데이터</text>
+  
+
+  
+  <!-- 화살표 마커 정의 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+</svg>

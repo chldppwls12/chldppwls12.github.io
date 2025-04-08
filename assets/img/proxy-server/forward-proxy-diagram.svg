@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- 배경 -->
+  <rect width="800" height="400" fill="#f8f9fa" />
+  
+  <!-- 제목 -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Forward Proxy</text>
+  
+  <!-- 클라이언트 영역 -->
+  <rect x="70" y="100" width="180" height="220" rx="10" ry="10" fill="#e6f2ff" stroke="#0066cc" stroke-width="2" />
+  <text x="160" y="90" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#0066cc">내부 네트워크</text>
+  
+  <!-- 클라이언트 아이콘들 -->
+  <rect x="100" y="130" width="50" height="40" rx="5" ry="5" fill="#ffffff" stroke="#0066cc" stroke-width="1" />
+  <text x="125" y="155" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">PC 1</text>
+  
+  <rect x="100" y="190" width="50" height="40" rx="5" ry="5" fill="#ffffff" stroke="#0066cc" stroke-width="1" />
+  <text x="125" y="215" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">PC 2</text>
+  
+  <rect x="100" y="250" width="50" height="40" rx="5" ry="5" fill="#ffffff" stroke="#0066cc" stroke-width="1" />
+  <text x="125" y="275" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">PC 3</text>
+  
+  <!-- 프록시 서버 -->
+  <rect x="350" y="150" width="120" height="120" rx="10" ry="10" fill="#ffe6cc" stroke="#ff9900" stroke-width="2" />
+  <text x="410" y="200" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">Forward</text>
+  <text x="410" y="220" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">Proxy</text>
+  
+  <!-- 인터넷 영역 -->
+  <ellipse cx="600" cy="210" rx="120" ry="80" fill="#f0f0f0" stroke="#666666" stroke-width="2" />
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#333">인터넷</text>
+  <text x="600" y="225" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666666">(외부 서버들)</text>
+  
+  <!-- 웹 서버 아이콘들 -->
+  <rect x="550" y="260" width="40" height="30" rx="3" ry="3" fill="#ffffff" stroke="#666666" stroke-width="1" />
+  <text x="570" y="278" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#333">서버 A</text>
+  
+  <rect x="600" y="260" width="40" height="30" rx="3" ry="3" fill="#ffffff" stroke="#666666" stroke-width="1" />
+  <text x="620" y="278" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#333">서버 B</text>
+  
+  <!-- 화살표들 -->
+  <!-- 클라이언트 -> 프록시 -->
+  <path d="M250 175 L350 175" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="300" y="165" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">요청</text>
+  
+  <!-- 프록시 -> 인터넷 -->
+  <path d="M470 200 L550 200" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="510" y="190" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">대리 요청</text>
+  
+  <!-- 인터넷 -> 프록시 -->
+  <path d="M550 230 L470 230" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="510" y="250" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">응답</text>
+  
+  <!-- 프록시 -> 클라이언트 -->
+  <path d="M350 205 L250 205" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  <text x="300" y="225" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">중계 응답</text>
+  
+
+  
+  <!-- 화살표 마커 정의 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+</svg>
